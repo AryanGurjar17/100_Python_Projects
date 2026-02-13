@@ -10,11 +10,18 @@ def random_color():
     b = random.randint(0, 255)
     random_color = (r, g, b)
     return random_color
-directions = [0, 90, 180, 270]
-tim.pensize(15)
 tim.speed("fastest")
 
-for _ in range(200):
-    tim.color(random_color())
-    tim.forward(38)
-    tim.setheading(random.choice(directions))
+
+def draw_spirograph(size_of_gap):
+
+
+    for _ in range(int(360 / size_of_gap)):
+        tim.color(random_color())
+        tim.circle(100)
+        tim.setheading(tim.heading() + 10)
+draw_spirograph(5)
+
+screen = t.Screen()
+screen.exitonclick()
+
